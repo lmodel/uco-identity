@@ -198,11 +198,15 @@
 <article class="md-content__inner md-typeset">
 <h1 id="class-simplenamefacet">Class: SimpleNameFacet</h1>
 <p><em>A simple name facet is a grouping of characteristics unique to the personal name (e.g., Dr. John Smith Jr.) held by an identity.</em></p>
-<p>URI: <a href="https://w3id.org/lmodel/uco-identity/SimpleNameFacet">identity:SimpleNameFacet</a></p>
+<p>URI: <a href="https://w3id.org/lmodel/uco-identity/SimpleNameFacet">uco_identity:SimpleNameFacet</a></p>
 <div class="mermaid"> classDiagram
     class SimpleNameFacet
       IdentityFacet &lt;|-- SimpleNameFacet
 
+      SimpleNameFacet : familyName
+      SimpleNameFacet : givenName
+      SimpleNameFacet : honorificPrefix
+      SimpleNameFacet : honorificSuffix
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
@@ -233,10 +237,28 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../familyName/">familyName</a></td>
+<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
 <td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../givenName/">givenName</a></td>
+<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
 <td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../honorificPrefix/">honorificPrefix</a></td>
+<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
 <td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../honorificSuffix/">honorificSuffix</a></td>
+<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
 <td></td>
+<td>direct</td>
 </tr>
 </tbody>
 </table>
@@ -256,11 +278,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>identity:SimpleNameFacet</td>
+<td>uco_identity:SimpleNameFacet</td>
 </tr>
 <tr>
 <td>native</td>
-<td>identity:SimpleNameFacet</td>
+<td>uco_identity:SimpleNameFacet</td>
 </tr>
 </tbody>
 </table>
@@ -274,19 +296,36 @@ description: A simple name facet is a grouping of characteristics unique to the 
 from_schema: https://w3id.org/lmodel/uco-identity
 rank: 1000
 is_a: identity facet
+slots:
+- familyName
+- givenName
+- honorificPrefix
+- honorificSuffix
 slot_usage:
   familyName:
     name: familyName
     multivalued: true
+    domain_of:
+    - simple name facet
+    - simple name facet
   givenName:
     name: givenName
     multivalued: true
+    domain_of:
+    - simple name facet
+    - simple name facet
   honorificPrefix:
     name: honorificPrefix
     multivalued: true
+    domain_of:
+    - simple name facet
+    - simple name facet
   honorificSuffix:
     name: honorificSuffix
     multivalued: true
+    domain_of:
+    - simple name facet
+    - simple name facet
 
 </code></pre>
 </details>
@@ -302,15 +341,76 @@ slot_usage:
   familyName:
     name: familyName
     multivalued: true
+    domain_of:
+    - simple name facet
+    - simple name facet
   givenName:
     name: givenName
     multivalued: true
+    domain_of:
+    - simple name facet
+    - simple name facet
   honorificPrefix:
     name: honorificPrefix
     multivalued: true
+    domain_of:
+    - simple name facet
+    - simple name facet
   honorificSuffix:
     name: honorificSuffix
     multivalued: true
+    domain_of:
+    - simple name facet
+    - simple name facet
+attributes:
+  familyName:
+    name: familyName
+    description: ''
+    from_schema: https://w3id.org/lmodel/uco-identity
+    rank: 1000
+    multivalued: true
+    alias: familyName
+    owner: simple name facet
+    domain_of:
+    - simple name facet
+    - simple name facet
+    range: string
+  givenName:
+    name: givenName
+    description: ''
+    from_schema: https://w3id.org/lmodel/uco-identity
+    rank: 1000
+    multivalued: true
+    alias: givenName
+    owner: simple name facet
+    domain_of:
+    - simple name facet
+    - simple name facet
+    range: string
+  honorificPrefix:
+    name: honorificPrefix
+    description: ''
+    from_schema: https://w3id.org/lmodel/uco-identity
+    rank: 1000
+    multivalued: true
+    alias: honorificPrefix
+    owner: simple name facet
+    domain_of:
+    - simple name facet
+    - simple name facet
+    range: string
+  honorificSuffix:
+    name: honorificSuffix
+    description: ''
+    from_schema: https://w3id.org/lmodel/uco-identity
+    rank: 1000
+    multivalued: true
+    alias: honorificSuffix
+    owner: simple name facet
+    domain_of:
+    - simple name facet
+    - simple name facet
+    range: string
 
 </code></pre>
 </details>

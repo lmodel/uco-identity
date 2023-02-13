@@ -198,11 +198,12 @@
 <article class="md-content__inner md-typeset">
 <h1 id="class-addressfacet">Class: AddressFacet</h1>
 <p><em>An address facet is a grouping of characteristics unique to an administrative identifier for a geolocation associated with a specific identity.</em></p>
-<p>URI: <a href="https://w3id.org/lmodel/uco-identity/AddressFacet">identity:AddressFacet</a></p>
+<p>URI: <a href="https://w3id.org/lmodel/uco-identity/AddressFacet">uco_identity:AddressFacet</a></p>
 <div class="mermaid"> classDiagram
     class AddressFacet
       IdentityFacet &lt;|-- AddressFacet
 
+      AddressFacet : address
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
@@ -233,10 +234,10 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../address/">address</a></td>
+<td>0..1 <br/> <a href="../Location/">Location</a></td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>direct</td>
 </tr>
 </tbody>
 </table>
@@ -256,11 +257,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>identity:AddressFacet</td>
+<td>uco_identity:AddressFacet</td>
 </tr>
 <tr>
 <td>native</td>
-<td>identity:AddressFacet</td>
+<td>uco_identity:AddressFacet</td>
 </tr>
 </tbody>
 </table>
@@ -274,9 +275,14 @@ description: An address facet is a grouping of characteristics unique to an admi
 from_schema: https://w3id.org/lmodel/uco-identity
 rank: 1000
 is_a: identity facet
+slots:
+- address
 slot_usage:
   address:
     name: address
+    domain_of:
+    - address facet
+    - address facet
     range: iri type
 
 </code></pre>
@@ -292,6 +298,20 @@ is_a: identity facet
 slot_usage:
   address:
     name: address
+    domain_of:
+    - address facet
+    - address facet
+    range: iri type
+attributes:
+  address:
+    name: address
+    description: ''
+    from_schema: https://w3id.org/lmodel/uco-identity
+    rank: 1000
+    alias: address
+    owner: address facet
+    domain_of:
+    - address facet
     range: iri type
 
 </code></pre>

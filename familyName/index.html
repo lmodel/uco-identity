@@ -257,6 +257,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#applicable-classes" class="md-nav__link">
+    Applicable Classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#properties" class="md-nav__link">
     Properties
   </a>
@@ -310,9 +317,24 @@
 
 
 <h1 id="slot-familyname">Slot: familyName</h1>
-<p>URI: <a href="https://w3id.org/lmodel/uco-identity/familyName">identity:familyName</a></p>
+<p>URI: <a href="https://w3id.org/lmodel/uco-identity/familyName">uco_identity:familyName</a></p>
 <!-- no inheritance hierarchy -->
 
+<h2 id="applicable-classes">Applicable Classes</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../SimpleNameFacet/">SimpleNameFacet</a></td>
+<td>A simple name facet is a grouping of characteristics unique to the personal n...</td>
+</tr>
+</tbody>
+</table>
 <h2 id="properties">Properties</h2>
 <ul>
 <li>Range: <a href="xsd:string">xsd:string</a></li>
@@ -329,9 +351,11 @@
 description: ''
 from_schema: https://w3id.org/lmodel/uco-identity
 exact_mappings:
-- WIKIDATA_PROPERTY:P734
+- wikidata.property:P734
 rank: 1000
 alias: familyName
+domain_of:
+- simple name facet
 range: string
 
 </code></pre>
