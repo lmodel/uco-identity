@@ -7,9 +7,9 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://lmodel.github.io/uco-identity/Relationship/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-9.0.13" name="generator"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.15" name="generator"/>
 <title>Class: Relationship - uco-identity</title>
-<link href="../assets/stylesheets/main.ffa9267a.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.113286f1.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -198,7 +198,7 @@
 <article class="md-content__inner md-typeset">
 <h1 id="class-relationship">Class: Relationship</h1>
 <p><em>A relationship is a grouping of characteristics unique to an assertion that one or more objects are related to another object in some way.</em></p>
-<p>URI: <a href="uco_core:Relationship">uco_core:Relationship</a></p>
+<p>URI: <a href="core:Relationship">core:Relationship</a></p>
 <div class="mermaid"> classDiagram
     class Relationship
       UcoObject &lt;|-- Relationship
@@ -280,25 +280,25 @@
 </tr>
 <tr>
 <td><a href="../createdBy/">createdBy</a></td>
-<td>0..1 <br/> <a href="../IriType/">IriType</a></td>
+<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
 <td>The identity that created a characterization of a concept</td>
 <td><a href="../UcoObject/">UcoObject</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
+<td>0..* <br/> <a href="xsd:string">xsd:string</a></td>
 <td>A description of a particular concept characterization</td>
 <td><a href="../UcoObject/">UcoObject</a></td>
 </tr>
 <tr>
 <td><a href="../externalReference/">externalReference</a></td>
-<td>0..* <br/> <a href="../IriType/">IriType</a></td>
+<td>0..* <br/> <a href="xsd:string">xsd:string</a></td>
 <td>Specifies a reference to a resource outside of the UCO</td>
 <td><a href="../UcoObject/">UcoObject</a></td>
 </tr>
 <tr>
 <td><a href="../hasFacet/">hasFacet</a></td>
-<td>0..* <br/> <a href="../IriType/">IriType</a></td>
+<td>0..* <br/> <a href="xsd:string">xsd:string</a></td>
 <td>Further sets of properties characterizing a concept based on the particular c...</td>
 <td><a href="../UcoObject/">UcoObject</a></td>
 </tr>
@@ -310,13 +310,13 @@
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
-<td>0..1 <br/> <a href="../StringType/">StringType</a></td>
+<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
 <td>The name of a particular concept characterization</td>
 <td><a href="../UcoObject/">UcoObject</a></td>
 </tr>
 <tr>
 <td><a href="../objectMarking/">objectMarking</a></td>
-<td>0..* <br/> <a href="../IriType/">IriType</a></td>
+<td>0..* <br/> <a href="../MarkingDefinitionAbstraction/">MarkingDefinitionAbstraction</a></td>
 <td>Marking definitions to be applied to a particular concept characterization in...</td>
 <td><a href="../UcoObject/">UcoObject</a></td>
 </tr>
@@ -328,13 +328,13 @@
 </tr>
 <tr>
 <td><a href="../specVersion/">specVersion</a></td>
-<td>0..1 <br/> <a href="../StringType/">StringType</a></td>
+<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
 <td>The version of UCO ontology or subontology specification used to characterize...</td>
 <td><a href="../UcoObject/">UcoObject</a></td>
 </tr>
 <tr>
 <td><a href="../tag/">tag</a></td>
-<td>0..* <br/> <a href="../StringType/">StringType</a></td>
+<td>0..* <br/> <a href="xsd:string">xsd:string</a></td>
 <td>A generic tag/label</td>
 <td><a href="../UcoObject/">UcoObject</a></td>
 </tr>
@@ -356,11 +356,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>uco_core:Relationship</td>
+<td>core:Relationship</td>
 </tr>
 <tr>
 <td>native</td>
-<td>uco_core:Relationship</td>
+<td>core:Relationship</td>
 </tr>
 <tr>
 <td>exact</td>
@@ -372,7 +372,7 @@
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<pre><code class="language-yaml">name: relationship
+<pre><code class="language-yaml">name: Relationship
 description: A relationship is a grouping of characteristics unique to an assertion
   that one or more objects are related to another object in some way.
 from_schema: https://w3id.org/lmodel/uco-core
@@ -380,7 +380,7 @@ exact_mappings:
 - NCIT:C25648
 - wikidata:Q930933
 rank: 1000
-is_a: uco object
+is_a: UcoObject
 slots:
 - endTime
 - isDirectional
@@ -389,33 +389,51 @@ slots:
 - startTime
 - target
 slot_usage:
+  endTime:
+    name: endTime
+    multivalued: true
+    domain_of:
+    - Relationship
+    - Relationship
+  isDirectional:
+    name: isDirectional
+    domain_of:
+    - Relationship
+    - Relationship
+    required: true
+    maximum_cardinality: 1
+  kindOfRelationship:
+    name: kindOfRelationship
+    domain_of:
+    - Relationship
+    - Relationship
+    maximum_cardinality: 1
   target:
     name: target
     domain_of:
-    - relationship
-    - relationship
-    range: iri type
+    - Relationship
+    - Relationship
     required: true
+    maximum_cardinality: 1
   source:
     name: source
     multivalued: true
     domain_of:
-    - relationship
-    - relationship
-    range: iri type
+    - Relationship
+    - Relationship
     required: true
-  isDirectional:
-    name: isDirectional
+  startTime:
+    name: startTime
+    multivalued: true
     domain_of:
-    - relationship
-    - relationship
-    required: true
+    - Relationship
+    - Relationship
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<pre><code class="language-yaml">name: relationship
+<pre><code class="language-yaml">name: Relationship
 description: A relationship is a grouping of characteristics unique to an assertion
   that one or more objects are related to another object in some way.
 from_schema: https://w3id.org/lmodel/uco-core
@@ -423,46 +441,59 @@ exact_mappings:
 - NCIT:C25648
 - wikidata:Q930933
 rank: 1000
-is_a: uco object
+is_a: UcoObject
 slot_usage:
+  endTime:
+    name: endTime
+    multivalued: true
+    domain_of:
+    - Relationship
+    - Relationship
+  isDirectional:
+    name: isDirectional
+    domain_of:
+    - Relationship
+    - Relationship
+    required: true
+    maximum_cardinality: 1
+  kindOfRelationship:
+    name: kindOfRelationship
+    domain_of:
+    - Relationship
+    - Relationship
+    maximum_cardinality: 1
   target:
     name: target
     domain_of:
-    - relationship
-    - relationship
-    range: iri type
+    - Relationship
+    - Relationship
     required: true
+    maximum_cardinality: 1
   source:
     name: source
     multivalued: true
     domain_of:
-    - relationship
-    - relationship
-    range: iri type
+    - Relationship
+    - Relationship
     required: true
-  isDirectional:
-    name: isDirectional
+  startTime:
+    name: startTime
+    multivalued: true
     domain_of:
-    - relationship
-    - relationship
-    required: true
+    - Relationship
+    - Relationship
 attributes:
   endTime:
     name: endTime
     description: The ending time of a time range.
     from_schema: https://w3id.org/lmodel/uco-core
-    exact_mappings:
-    - NCIT:C82573
-    - SIO:000670
-    - sumo:TimePoint
-    - wikidata:Q24575125
-    broad_mappings:
-    - sumo:TimePoint
     rank: 1000
+    multivalued: true
     alias: endTime
-    owner: relationship
+    owner: Relationship
     domain_of:
-    - relationship
+    - Relationship
+    - Relationship
     range: datetime
   isDirectional:
     name: isDirectional
@@ -471,22 +502,25 @@ attributes:
     from_schema: https://w3id.org/lmodel/uco-core
     rank: 1000
     alias: isDirectional
-    owner: relationship
+    owner: Relationship
     domain_of:
-    - relationship
-    - relationship
+    - Relationship
+    - Relationship
     range: boolean type
     required: true
+    maximum_cardinality: 1
   kindOfRelationship:
     name: kindOfRelationship
     description: A characterization of the nature of a relationship between objects.
     from_schema: https://w3id.org/lmodel/uco-core
     rank: 1000
     alias: kindOfRelationship
-    owner: relationship
+    owner: Relationship
     domain_of:
-    - relationship
+    - Relationship
+    - Relationship
     range: string
+    maximum_cardinality: 1
   source:
     name: source
     description: The originating node of a specified relationship.
@@ -494,23 +528,23 @@ attributes:
     rank: 1000
     multivalued: true
     alias: source
-    owner: relationship
+    owner: Relationship
     domain_of:
-    - relationship
-    - relationship
-    range: iri type
+    - Relationship
+    - Relationship
+    range: UcoObject
     required: true
   startTime:
     name: startTime
     description: The initial time of a time range.
     from_schema: https://w3id.org/lmodel/uco-core
-    broad_mappings:
-    - sumo:TimePoint
     rank: 1000
+    multivalued: true
     alias: startTime
-    owner: relationship
+    owner: Relationship
     domain_of:
-    - relationship
+    - Relationship
+    - Relationship
     range: datetime
   target:
     name: target
@@ -518,153 +552,209 @@ attributes:
     from_schema: https://w3id.org/lmodel/uco-core
     rank: 1000
     alias: target
-    owner: relationship
+    owner: Relationship
     domain_of:
-    - relationship
-    - relationship
-    range: iri type
+    - Relationship
+    - Relationship
+    range: UcoObject
     required: true
+    maximum_cardinality: 1
   createdBy:
     name: createdBy
     description: The identity that created a characterization of a concept.
     from_schema: https://w3id.org/lmodel/uco-core
     rank: 1000
-    domain: identity abstraction
+    domain: IdentityAbstraction
     alias: createdBy
-    owner: relationship
+    owner: Relationship
     domain_of:
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    range: iri type
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    range: string
+    maximum_cardinality: 0
   description:
     name: description
     description: A description of a particular concept characterization.
     from_schema: https://w3id.org/lmodel/uco-core
-    exact_mappings:
-    - lm_core:description
     rank: 1000
+    multivalued: true
     alias: description
-    owner: relationship
+    owner: Relationship
     domain_of:
-    - uco object
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
     range: string
   externalReference:
     name: externalReference
     description: Specifies a reference to a resource outside of the UCO.
     from_schema: https://w3id.org/lmodel/uco-core
     rank: 1000
-    domain: external reference
+    domain: ExternalReference
     multivalued: true
     alias: externalReference
-    owner: relationship
+    owner: Relationship
     domain_of:
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    range: iri type
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    range: string
+    required: false
+    minimum_cardinality: 0
   hasFacet:
     name: hasFacet
     description: Further sets of properties characterizing a concept based on the
@@ -672,66 +762,66 @@ attributes:
       being characterized.
     from_schema: https://w3id.org/lmodel/uco-core
     rank: 1000
-    domain: facet
+    domain: Facet
     multivalued: true
     alias: hasFacet
-    owner: relationship
+    owner: Relationship
     domain_of:
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    range: iri type
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    range: string
   modifiedTime:
     name: modifiedTime
     description: Specifies the time that this particular version of the object was
@@ -745,75 +835,127 @@ attributes:
     rank: 1000
     multivalued: true
     alias: modifiedTime
-    owner: relationship
+    owner: Relationship
     domain_of:
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
     range: datetime
   name:
     name: name
     description: The name of a particular concept characterization.
     from_schema: https://w3id.org/lmodel/uco-core
-    exact_mappings:
-    - lm_core:name
     rank: 1000
     alias: name
-    owner: relationship
+    owner: Relationship
     domain_of:
-    - uco object
-    range: string type
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    range: string
+    maximum_cardinality: 1
   objectMarking:
     name: objectMarking
     description: Marking definitions to be applied to a particular concept characterization
@@ -822,92 +964,194 @@ attributes:
     rank: 1000
     multivalued: true
     alias: objectMarking
-    owner: relationship
+    owner: Relationship
     domain_of:
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    range: iri type
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    range: MarkingDefinitionAbstraction
   objectCreatedTime:
     name: objectCreatedTime
     description: The time at which a characterization of a concept is created. This
       time pertains to the time of creating the record object, and is not an intrinsic
       characteristic of the concept.
     from_schema: https://w3id.org/lmodel/uco-core
-    close_mappings:
-    - lm_core:creation_date
-    broad_mappings:
-    - sumo:TimePoint
     rank: 1000
     alias: objectCreatedTime
-    owner: relationship
+    owner: Relationship
     domain_of:
-    - uco object
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
     range: datetime
+    maximum_cardinality: 1
   specVersion:
     name: specVersion
     description: The version of UCO ontology or subontology specification used to
       characterize a concept.
     from_schema: https://w3id.org/lmodel/uco-core
-    close_mappings:
-    - lm_core:version
     rank: 1000
     alias: specVersion
-    owner: relationship
+    owner: Relationship
     domain_of:
-    - uco object
-    range: string type
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    range: string
+    maximum_cardinality: 1
   tag:
     name: tag
     description: A generic tag/label.
@@ -915,63 +1159,63 @@ attributes:
     rank: 1000
     multivalued: true
     alias: tag
-    owner: relationship
+    owner: Relationship
     domain_of:
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    - uco object
-    range: string type
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    - UcoObject
+    range: string
 
 </code></pre>
 </details>
