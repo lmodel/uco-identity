@@ -7,9 +7,9 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://lmodel.github.io/uco-identity/AttributedName/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-9.0.15" name="generator"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.1.3" name="generator"/>
 <title>Class: AttributedName - uco-identity</title>
-<link href="../assets/stylesheets/main.113286f1.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.c4a75a56.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -27,7 +27,7 @@
 </div>
 <div data-md-component="announce">
 </div>
-<header class="md-header" data-md-component="header">
+<header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
 <a aria-label="uco-identity" class="md-header__button md-logo" data-md-component="logo" href=".." title="uco-identity">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
@@ -204,16 +204,49 @@
       UcoObject &lt;|-- AttributedName
 
       AttributedName : createdBy
+
+          AttributedName ..&gt; string : createdBy
+
       AttributedName : description
+
+          AttributedName ..&gt; string : description
+
       AttributedName : externalReference
+
+          AttributedName ..&gt; string : externalReference
+
       AttributedName : hasFacet
+
+          AttributedName ..&gt; string : hasFacet
+
       AttributedName : modifiedTime
+
+          AttributedName ..&gt; datetime : modifiedTime
+
       AttributedName : name
+
+          AttributedName ..&gt; string : name
+
       AttributedName : namingAuthority
+
+          AttributedName ..&gt; string : namingAuthority
+
       AttributedName : objectCreatedTime
+
+          AttributedName ..&gt; datetime : objectCreatedTime
+
       AttributedName : objectMarking
+
+          AttributedName ..&gt; MarkingDefinitionAbstraction : objectMarking
+
       AttributedName : specVersion
+
+          AttributedName ..&gt; string : specVersion
+
       AttributedName : tag
+
+          AttributedName ..&gt; string : tag
+
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
@@ -345,7 +378,6 @@ related_mappings:
 - wikidata:Q758251
 - wikidata:Q32635
 - wikidata:Q5508349
-rank: 1000
 is_a: UcoObject
 slots:
 - namingAuthority
@@ -353,7 +385,6 @@ slot_usage:
   namingAuthority:
     name: namingAuthority
     domain_of:
-    - AttributedName
     - AttributedName
     maximum_cardinality: 1
 
@@ -369,13 +400,11 @@ related_mappings:
 - wikidata:Q758251
 - wikidata:Q32635
 - wikidata:Q5508349
-rank: 1000
 is_a: UcoObject
 slot_usage:
   namingAuthority:
     name: namingAuthority
     domain_of:
-    - AttributedName
     - AttributedName
     maximum_cardinality: 1
 attributes:
@@ -383,11 +412,9 @@ attributes:
     name: namingAuthority
     description: Specifies the naming authority that issued the name of the entity.
     from_schema: https://w3id.org/lmodel/uco-core
-    rank: 1000
     alias: namingAuthority
     owner: AttributedName
     domain_of:
-    - AttributedName
     - AttributedName
     range: string
     maximum_cardinality: 1
@@ -395,42 +422,10 @@ attributes:
     name: createdBy
     description: The identity that created a characterization of a concept.
     from_schema: https://w3id.org/lmodel/uco-core
-    rank: 1000
     domain: IdentityAbstraction
     alias: createdBy
     owner: AttributedName
     domain_of:
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
     - UcoObject
     range: string
     maximum_cardinality: 0
@@ -438,85 +433,21 @@ attributes:
     name: description
     description: A description of a particular concept characterization.
     from_schema: https://w3id.org/lmodel/uco-core
-    rank: 1000
     multivalued: true
     alias: description
     owner: AttributedName
     domain_of:
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
     - UcoObject
     range: string
   externalReference:
     name: externalReference
     description: Specifies a reference to a resource outside of the UCO.
     from_schema: https://w3id.org/lmodel/uco-core
-    rank: 1000
     domain: ExternalReference
     multivalued: true
     alias: externalReference
     owner: AttributedName
     domain_of:
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
     - UcoObject
     range: string
     required: false
@@ -527,43 +458,11 @@ attributes:
       particular context of the class and of the particular instance of the concept
       being characterized.
     from_schema: https://w3id.org/lmodel/uco-core
-    rank: 1000
     domain: Facet
     multivalued: true
     alias: hasFacet
     owner: AttributedName
     domain_of:
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
     - UcoObject
     range: string
   modifiedTime:
@@ -576,83 +475,19 @@ attributes:
       new version of an object. The modified timestamp MUST be precise to the nearest
       millisecond (exactly three digits after the decimal place in seconds).
     from_schema: https://w3id.org/lmodel/uco-core
-    rank: 1000
     multivalued: true
     alias: modifiedTime
     owner: AttributedName
     domain_of:
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
     - UcoObject
     range: datetime
   name:
     name: name
     description: The name of a particular concept characterization.
     from_schema: https://w3id.org/lmodel/uco-core
-    rank: 1000
     alias: name
     owner: AttributedName
     domain_of:
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
     - UcoObject
     range: string
     maximum_cardinality: 1
@@ -661,42 +496,10 @@ attributes:
     description: Marking definitions to be applied to a particular concept characterization
       in its entirety.
     from_schema: https://w3id.org/lmodel/uco-core
-    rank: 1000
     multivalued: true
     alias: objectMarking
     owner: AttributedName
     domain_of:
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
     - UcoObject
     range: MarkingDefinitionAbstraction
   objectCreatedTime:
@@ -705,41 +508,9 @@ attributes:
       time pertains to the time of creating the record object, and is not an intrinsic
       characteristic of the concept.
     from_schema: https://w3id.org/lmodel/uco-core
-    rank: 1000
     alias: objectCreatedTime
     owner: AttributedName
     domain_of:
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
     - UcoObject
     range: datetime
     maximum_cardinality: 1
@@ -748,41 +519,9 @@ attributes:
     description: The version of UCO ontology or subontology specification used to
       characterize a concept.
     from_schema: https://w3id.org/lmodel/uco-core
-    rank: 1000
     alias: specVersion
     owner: AttributedName
     domain_of:
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
     - UcoObject
     range: string
     maximum_cardinality: 1
@@ -790,42 +529,10 @@ attributes:
     name: tag
     description: A generic tag/label.
     from_schema: https://w3id.org/lmodel/uco-core
-    rank: 1000
     multivalued: true
     alias: tag
     owner: AttributedName
     domain_of:
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
-    - UcoObject
     - UcoObject
     range: string
 
@@ -855,6 +562,6 @@ attributes:
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.2a6f1dda.min.js"></script>
+<script src="../assets/javascripts/bundle.efa0ade1.min.js"></script>
 <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>
