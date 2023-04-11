@@ -1,0 +1,251 @@
+---
+id: https://w3id.org/lmodel/uco-identity
+name: uco-identity
+title: UCO Identity
+description: >-
+license: https://www.apache.org/licenses/LICENSE-2.0
+
+version: 1.1.0  # sync with primary git repo release tag
+
+## ------------
+##
+## PREFIXES
+## ------------
+# CURIE namespaces (prefixes/base URI's) mappings of prefixes used in the body of
+# the UCOLink Model specification are resolved using a specific precedence order,
+# for use in the generation of the UCOLink Model context.jsonld mappings to
+# namespaces. Any prefixes encountered in the UCOLink Model but not resolved by
+# the following precedence sources, are anonymously declared by linkml as
+# http://example.org/UNKNOWN/ rooted base URI's which should ideally be repaired
+# in one of the precedence lists.
+#
+# 1. The following 'prefixes:' delimited list has first precedence in resolution.
+
+prefixes:
+  dcid: 'https://datacommons.org/browser/'
+  dcterms: 'http://purl.org/dc/terms/'
+  GSSO: 'http://purl.obolibrary.org/obo/GSSO_'
+  lm_core: 'https://w3id.org/lmodel/core/'
+  linkml: 'https://w3id.org/linkml/'
+  SIO: 'http://identifiers.org/sio/'
+  sumo: 'https://w3id.org/sumo/kb/'
+  wikidata.property: 'https://www.wikidata.org/wiki/Property:'
+
+  identity: 'https://w3id.org/lmodel/uco-identity/'
+  schema_uco_core: 'https://w3id.org/lmodel/uco-core/schema/'
+  schema_uco_location: 'https://w3id.org/lmodel/uco-location/schema/'
+
+default_prefix: identity
+default_range: string
+
+## ------------
+## ENUMS
+## ------------
+enums: {}
+
+## ------------
+## SUBSETS
+## ------------
+subsets: {}
+
+## ------------
+## TYPES
+## ------------
+imports:
+  - linkml:types
+  - schema_uco_core:uco_core
+  - schema_uco_location:uco_location
+
+types: {}
+
+## ------------
+## SLOTS
+## ------------
+slots:
+
+  address:
+    description: >-
+    range: Location
+    exact_mappings:
+      - wikidata.property:P6375  # street address
+    narrow_mappings:
+      - wikidata.property:P2918  # PO box
+
+  birthdate:
+    description: >-
+    range: datetime
+    exact_mappings:
+      - wikidata.property:P569
+
+  familyName:
+    description: >-
+    exact_mappings:
+      - wikidata.property:P734
+
+  givenName:
+    description: >-
+    exact_mappings:
+      - wikidata.property:P735
+
+  honorificPrefix:
+    description: >-
+    exact_mappings:
+      - wikidata.property:P511
+
+  honorificSuffix:
+    description: >-
+    exact_mappings:
+      - wikidata.property:P1035
+
+## ------------
+## CLASSES
+## ------------
+classes:
+
+  AddressFacet:
+    is_a: IdentityFacet
+    description: >-
+      An Address Facet is a grouping of characteristics unique to an administrative identifier for a geolocation associated with a specific identity.
+    slots:
+      - address
+    slot_usage:
+      address:
+        maximum_cardinality: 1
+
+  AffiliationFacet:
+    is_a: IdentityFacet
+    description: >-
+      An affiliation is a grouping of characteristics unique to the established affiliations of an entity.
+
+  BirthInformationFacet:
+    is_a: IdentityFacet
+    description: >-
+      Birth information is a grouping of characteristics unique to information pertaining to the birth of an entity.
+    slots:
+      - birthdate
+    slot_usage:
+      birthdate:
+        maximum_cardinality: 1
+
+  CountryOfResidenceFacet:
+    is_a: IdentityFacet
+    description: >-
+      Country of residence is a grouping of characteristics unique to information related to the country, or countries, where an entity resides.
+
+  EventsFacet:
+    is_a: IdentityFacet
+    description: >-
+      Events is a grouping of characteristics unique to information related to specific relevant things that happen in the lifetime of an entity.
+
+  IdentifierFacet:
+    is_a: IdentityFacet
+    description: >-
+      Identifier is a grouping of characteristics unique to information that uniquely and specifically identities an entity.
+
+  Identity:
+    is_a: IdentityAbstraction
+    description: >-
+      An identity is a grouping of identifying characteristics unique to an individual or organization.
+    exact_mappings:
+      - dcterms:identifier
+      - NCIT:C68806
+      - sumo:identityElement
+      - wikidata:Q844569
+      - wikidata:Q254474
+    narrow_mappings:
+      - wikidata:Q48264  # gender identity
+      - wikidata:Q1165905  # sex identity
+      - wikidata:Q1880695  # national identity
+
+  IdentityFacet:
+    is_a: Facet
+    description: >-
+      An IdentityFacet is a grouping of characteristics unique to a particular aspect of an identity.
+
+  LanguagesFacet:
+    is_a: IdentityFacet
+    description: >-
+      Languages is a grouping of characteristics unique to specific syntactically and grammatically standardized forms of communication (human or computer) in which an entity has proficiency (comprehends, speaks, reads, or writes).
+
+  NationalityFacet:
+    is_a: IdentityFacet
+    description: >-
+      Nationality is a grouping of characteristics unique to the condition of an entity belonging to a particular nation.
+
+  OccupationFacet:
+    is_a: IdentityFacet
+    description: >-
+      Occupation is a grouping of characteristics unique to the job or profession of an entity.
+
+  Organization:
+    is_a: Identity
+    description: >-
+      An organization is a grouping of identifying characteristics unique to a group of people who work together in an organized way for a shared purpose. [based on https://dictionary.cambridge.org/us/dictionary/english/organization]
+    exact_mappings:
+      - GSSO:000232
+      - SIO:000012
+      - sumo:Organization
+      - wikidata:Q15911314
+      - wikidata:Q43229
+
+  OrganizationDetailsFacet:
+    is_a: IdentityFacet
+    description: >-
+      Organization details is a grouping of characteristics unique to an identity representing an administrative and functional structure.
+
+  Person:
+    is_a: Identity
+    description: >-
+      A person is a grouping of identifying characteristics unique to a human being regarded as an individual. [based on https://www.lexico.com/en/definition/person]
+    exact_mappings:
+      - NCIT:C25190
+      - SIO:000498
+      - wikidata:Q215627
+    narrow_mappings:
+      - sumo:PersonID
+
+  PersonalDetailsFacet:
+    is_a: IdentityFacet
+    description: >-
+      Personal details is a grouping of characteristics unique to an identity representing an individual person.
+
+  PhysicalInfoFacet:
+    is_a: IdentityFacet
+    description: >-
+      Physical info is a grouping of characteristics unique to the outwardly observable nature of an individual person.
+
+  QualificationFacet:
+    is_a: IdentityFacet
+    description: >-
+      Qualification is a grouping of characteristics unique to particular skills, capabilities or their related achievements (educational, professional, etc.) of an entity.
+
+  RelatedIdentityFacet:
+    is_a: IdentityFacet
+    description: >-
+      <Needs fleshed out from CIQ>
+
+  SimpleNameFacet:
+    is_a: IdentityFacet
+    description: >-
+      A simple name facet is a grouping of characteristics unique to the personal name (e.g., Dr. John Smith Jr.) held by an identity.
+    slots:
+      - familyName
+      - givenName
+      - honorificPrefix
+      - honorificSuffix
+    slot_usage:
+      familyName:
+        multivalued: true
+      givenName:
+        multivalued: true
+      honorificPrefix:
+        multivalued: true
+      honorificSuffix:
+        multivalued: true
+
+  VisaFacet:
+    is_a: IdentityFacet
+    description: >-
+      Visa is a grouping of characteristics unique to information related to a person's ability to enter, leave, or stay for a specified period of time in a country.
+
+...

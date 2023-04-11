@@ -1,0 +1,407 @@
+type AddressFacet
+  {
+    address: Location
+  }
+
+type AffiliationFacet
+  {
+  }
+
+type Annotation
+  {
+    createdBy: String
+    description: [String]
+    externalReference: [String]
+    hasFacet: [String]
+    modifiedTime: [Datetime]
+    name: String
+    objectMarking: [MarkingDefinitionAbstraction]
+    objectCreatedTime: Datetime
+    specVersion: String
+    tag: [String]
+    statement: [String]
+    object: [UcoObject]!
+  }
+
+type Assertion
+  {
+    createdBy: String
+    description: [String]
+    externalReference: [String]
+    hasFacet: [String]
+    modifiedTime: [Datetime]
+    name: String
+    objectMarking: [MarkingDefinitionAbstraction]
+    objectCreatedTime: Datetime
+    specVersion: String
+    tag: [String]
+    statement: [String]
+  }
+
+type AttributedName
+  {
+    createdBy: String
+    description: [String]
+    externalReference: [String]
+    hasFacet: [String]
+    modifiedTime: [Datetime]
+    name: String
+    objectMarking: [MarkingDefinitionAbstraction]
+    objectCreatedTime: Datetime
+    specVersion: String
+    tag: [String]
+    namingAuthority: String
+  }
+
+type BirthInformationFacet
+  {
+    birthdate: Datetime
+  }
+
+type Bundle
+  {
+    createdBy: String
+    description: [String]
+    externalReference: [String]
+    hasFacet: [String]
+    modifiedTime: [Datetime]
+    name: String
+    objectMarking: [MarkingDefinitionAbstraction]
+    objectCreatedTime: Datetime
+    specVersion: String
+    tag: [String]
+    object: [UcoObject]
+  }
+
+type Compilation
+  {
+    createdBy: String
+    description: [String]
+    externalReference: [String]
+    hasFacet: [String]
+    modifiedTime: [Datetime]
+    name: String
+    objectMarking: [MarkingDefinitionAbstraction]
+    objectCreatedTime: Datetime
+    specVersion: String
+    tag: [String]
+  }
+
+type ConfidenceFacet
+  {
+    confidence: NonNegativeIntegerType!
+  }
+
+type ContextualCompilation
+  {
+    createdBy: String
+    description: [String]
+    externalReference: [String]
+    hasFacet: [String]
+    modifiedTime: [Datetime]
+    name: String
+    objectMarking: [MarkingDefinitionAbstraction]
+    objectCreatedTime: Datetime
+    specVersion: String
+    tag: [String]
+    object: [UcoObject]!
+  }
+
+type ControlledVocabulary
+  {
+    createdBy: String
+    description: [String]
+    externalReference: [String]
+    hasFacet: [String]
+    modifiedTime: [Datetime]
+    name: String
+    objectMarking: [MarkingDefinitionAbstraction]
+    objectCreatedTime: Datetime
+    specVersion: String
+    tag: [String]
+    constrainingVocabularyReference: IriType
+    constrainingVocabularyName: String
+    value: String!
+  }
+
+type CountryOfResidenceFacet
+  {
+  }
+
+type EnclosingCompilation
+  {
+    createdBy: String
+    description: [String]
+    externalReference: [String]
+    hasFacet: [String]
+    modifiedTime: [Datetime]
+    name: String
+    objectMarking: [MarkingDefinitionAbstraction]
+    objectCreatedTime: Datetime
+    specVersion: String
+    tag: [String]
+    object: [UcoObject]
+  }
+
+type EventsFacet
+  {
+  }
+
+type ExternalReference
+  {
+    referenceURL: IriType
+    definingContext: String
+    externalIdentifier: String
+  }
+
+interface Facet
+  {
+  }
+
+type GPSCoordinatesFacet
+  {
+    hdop: DecimalType
+    pdop: DecimalType
+    tdop: DecimalType
+    vdop: DecimalType
+  }
+
+type Grouping
+  {
+    createdBy: String
+    description: [String]
+    externalReference: [String]
+    hasFacet: [String]
+    modifiedTime: [Datetime]
+    name: String
+    objectMarking: [MarkingDefinitionAbstraction]
+    objectCreatedTime: Datetime
+    specVersion: String
+    tag: [String]
+    object: [UcoObject]!
+    context: [String]
+  }
+
+type IdentifierFacet
+  {
+  }
+
+type Identity
+  {
+    createdBy: String
+    description: [String]
+    externalReference: [String]
+    hasFacet: [String]
+    modifiedTime: [Datetime]
+    name: String
+    objectMarking: [MarkingDefinitionAbstraction]
+    objectCreatedTime: Datetime
+    specVersion: String
+    tag: [String]
+  }
+
+type IdentityAbstraction
+  {
+    createdBy: String
+    description: [String]
+    externalReference: [String]
+    hasFacet: [String]
+    modifiedTime: [Datetime]
+    name: String
+    objectMarking: [MarkingDefinitionAbstraction]
+    objectCreatedTime: Datetime
+    specVersion: String
+    tag: [String]
+  }
+
+type IdentityFacet
+  {
+  }
+
+type Item
+  {
+    createdBy: String
+    description: [String]
+    externalReference: [String]
+    hasFacet: [String]
+    modifiedTime: [Datetime]
+    name: String
+    objectMarking: [MarkingDefinitionAbstraction]
+    objectCreatedTime: Datetime
+    specVersion: String
+    tag: [String]
+  }
+
+type LanguagesFacet
+  {
+  }
+
+type LatLongCoordinatesFacet
+  {
+    altitude: DecimalType
+    latitude: DecimalType
+    longitude: DecimalType
+  }
+
+type Location
+  {
+    createdBy: String
+    description: [String]
+    externalReference: [String]
+    hasFacet: [String]
+    modifiedTime: [Datetime]
+    name: String
+    objectMarking: [MarkingDefinitionAbstraction]
+    objectCreatedTime: Datetime
+    specVersion: String
+    tag: [String]
+  }
+
+type MarkingDefinitionAbstraction
+  {
+    createdBy: String
+    description: [String]
+    externalReference: [String]
+    hasFacet: [String]
+    modifiedTime: [Datetime]
+    name: String
+    objectMarking: [MarkingDefinitionAbstraction]
+    objectCreatedTime: Datetime
+    specVersion: String
+    tag: [String]
+  }
+
+type ModusOperandi
+  {
+    createdBy: String
+    description: [String]
+    externalReference: [String]
+    hasFacet: [String]
+    modifiedTime: [Datetime]
+    name: String
+    objectMarking: [MarkingDefinitionAbstraction]
+    objectCreatedTime: Datetime
+    specVersion: String
+    tag: [String]
+  }
+
+type NationalityFacet
+  {
+  }
+
+type OccupationFacet
+  {
+  }
+
+type Organization
+  {
+    createdBy: String
+    description: [String]
+    externalReference: [String]
+    hasFacet: [String]
+    modifiedTime: [Datetime]
+    name: String
+    objectMarking: [MarkingDefinitionAbstraction]
+    objectCreatedTime: Datetime
+    specVersion: String
+    tag: [String]
+  }
+
+type OrganizationDetailsFacet
+  {
+  }
+
+type Person
+  {
+    createdBy: String
+    description: [String]
+    externalReference: [String]
+    hasFacet: [String]
+    modifiedTime: [Datetime]
+    name: String
+    objectMarking: [MarkingDefinitionAbstraction]
+    objectCreatedTime: Datetime
+    specVersion: String
+    tag: [String]
+  }
+
+type PersonalDetailsFacet
+  {
+  }
+
+type PhysicalInfoFacet
+  {
+  }
+
+type QualificationFacet
+  {
+  }
+
+type RelatedIdentityFacet
+  {
+  }
+
+type Relationship
+  {
+    createdBy: String
+    description: [String]
+    externalReference: [String]
+    hasFacet: [String]
+    modifiedTime: [Datetime]
+    name: String
+    objectMarking: [MarkingDefinitionAbstraction]
+    objectCreatedTime: Datetime
+    specVersion: String
+    tag: [String]
+    endTime: [Datetime]
+    isDirectional: BooleanType!
+    kindOfRelationship: String
+    source: [UcoObject]!
+    startTime: [Datetime]
+    target: UcoObject!
+  }
+
+type SimpleAddressFacet
+  {
+    addressType: String
+    country: String
+    locality: String
+    postalCode: String
+    region: String
+    street: String
+  }
+
+type SimpleNameFacet
+  {
+    familyName: [String]
+    givenName: [String]
+    honorificPrefix: [String]
+    honorificSuffix: [String]
+  }
+
+type UcoInherentCharacterizationThing
+  {
+  }
+
+type UcoObject
+  {
+    createdBy: String
+    description: [String]
+    externalReference: [String]
+    hasFacet: [String]
+    modifiedTime: [Datetime]
+    name: String
+    objectMarking: [MarkingDefinitionAbstraction]
+    objectCreatedTime: Datetime
+    specVersion: String
+    tag: [String]
+  }
+
+interface UcoThing
+  {
+  }
+
+type VisaFacet
+  {
+  }
+
